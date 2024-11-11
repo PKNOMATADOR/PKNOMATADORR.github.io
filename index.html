@@ -16,34 +16,34 @@
             align-items: center;
             height: 100vh;
             text-align: center;
+            overflow-x: hidden; /* Evita el desbordamiento horizontal */
         }
         .container {
             background: #ffffff;
-            padding: 30px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             max-width: 600px;
-            width: 90%;
+            width: 100%;
             transform: translateY(-30px);
             animation: slideIn 1s ease-out forwards;
+            margin: 0 20px; /* Añadir margen lateral para que no toque los bordes */
         }
         h1 {
             color: #6A1B9A;
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 20px;
         }
         p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             line-height: 1.6;
             color: #555;
+            margin: 10px 0;
         }
         .signature {
             font-style: italic;
             margin-top: 20px;
             color: #000;
-        }
-        .heart {
-            color: #e91e63;
         }
         .link {
             display: inline-block;
@@ -85,6 +85,32 @@
             100% { top: 100vh; }
         }
 
+        /* Responsividad: ajustando el tamaño de los elementos en pantallas más pequeñas */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .link {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+            p {
+                font-size: 0.95rem;
+            }
+            .link {
+                font-size: 0.9rem;
+                padding: 6px 14px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -102,7 +128,7 @@
         <p class="signature">Con cariño, Antonio 🖤✨</p>
         
         <!-- Enlace agregado aquí -->
-        <a href="https://open.spotify.com/intl-es/track/2VhJ4nrPorAbySEgO4V0BS?si=eadec9564a234333" class="link" target="_blank">Escuchalo sipi</a>
+        <a href="https://www.youtube.com/watch?v=I6FSIi12-j0" class="link" target="_blank">Escucha "Soñé" de Zoé</a>
     </div>
 
     <div class="confetti">
