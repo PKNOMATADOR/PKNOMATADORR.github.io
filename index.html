@@ -16,7 +16,7 @@
             align-items: center;
             height: 100vh;
             text-align: center;
-            overflow-x: hidden; /* Evita el desbordamiento horizontal */
+            overflow-x: hidden;
         }
         .container {
             background: #ffffff;
@@ -27,12 +27,15 @@
             width: 100%;
             transform: translateY(-30px);
             animation: slideIn 1s ease-out forwards;
-            margin: 0 20px; /* Añadir margen lateral para que no toque los bordes */
+            margin: 0 20px;
+            position: relative;
+            overflow: hidden;
         }
         h1 {
             color: #6A1B9A;
             font-size: 2rem;
             margin-bottom: 20px;
+            animation: glow 1.5s ease-in-out infinite alternate;
         }
         p {
             font-size: 1.1rem;
@@ -54,85 +57,90 @@
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 8px rgba(106, 27, 154, 0.5);
+            animation: pulse 2s infinite;
         }
         .link:hover {
             background-color: #9c4dcc;
+            box-shadow: 0 0 12px rgba(106, 27, 154, 0.7);
         }
+        
+        /* Confeti */
         .confetti {
             position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            pointer-events: none;
-            z-index: -1;
-            animation: confetti 5s infinite linear;
+            width: 10px;
+            height: 10px;
+            background-color: #ff5f6d;
+            top: -10px;
+            animation: fall linear infinite;
         }
+        .confetti:nth-child(1) { left: 15%; animation-duration: 4s; }
+        .confetti:nth-child(2) { left: 25%; animation-duration: 5s; background-color: #ffc371; }
+        .confetti:nth-child(3) { left: 35%; animation-duration: 3.5s; background-color: #ff5f6d; }
+        .confetti:nth-child(4) { left: 50%; animation-duration: 4.5s; background-color: #ffc371; }
+        .confetti:nth-child(5) { left: 65%; animation-duration: 4.2s; background-color: #ff5f6d; }
+        .confetti:nth-child(6) { left: 75%; animation-duration: 3.8s; background-color: #ffc371; }
+        .confetti:nth-child(7) { left: 85%; animation-duration: 4.1s; background-color: #ff5f6d; }
 
         @keyframes slideIn {
-            0% {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
-
-        @keyframes confetti {
-            0% { top: 0; }
-            100% { top: 100vh; }
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px #6A1B9A; }
+            100% { text-shadow: 0 0 20px #9c4dcc; }
         }
-
-        /* Responsividad: ajustando el tamaño de los elementos en pantallas más pequeñas */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 8px rgba(106, 27, 154, 0.5); }
+            50% { box-shadow: 0 0 12px rgba(106, 27, 154, 0.7); }
+            100% { box-shadow: 0 0 8px rgba(106, 27, 154, 0.5); }
+        }
+        @keyframes fall {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+        
+        /* Responsividad */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-            p {
-                font-size: 1rem;
-            }
-            .link {
-                font-size: 1rem;
-                padding: 8px 16px;
-            }
+            h1 { font-size: 1.8rem; }
+            p { font-size: 1rem; }
+            .link { font-size: 1rem; padding: 8px 16px; }
         }
         @media (max-width: 480px) {
-            h1 {
-                font-size: 1.6rem;
-            }
-            p {
-                font-size: 0.95rem;
-            }
-            .link {
-                font-size: 0.9rem;
-                padding: 6px 14px;
-            }
+            h1 { font-size: 1.6rem; }
+            p { font-size: 0.95rem; }
+            .link { font-size: 0.9rem; padding: 6px 14px; }
         }
-
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Para Katherine 💜✨</h1>
         <p>
-            Hoy celebro no solo tu cumpleaños, sino también el hermoso vínculo que hemos construido a lo largo de estos años. Aunque hayan pasado adversidades y momentos felices, nuestra conexión sigue intacta. Conocerte ha sido un regalo de Dios y cada día a tu lado ha sido valioso, incluso con la distancia. La alegría de compartir risas, preocuparnos mutuamente y saber que nos va bien es nuestra dicha diaria. La lealtad y el amor que compartimos son más fuertes que cualquier distancia.
+            Hoy celebro no solo tu cumpleaños, sino también el hermoso vínculo que hemos construido a lo largo de estos años. Conocerte ha sido un regalo de Dios y cada día a tu lado ha sido valioso, incluso con la distancia. La alegría de compartir risas, preocuparnos mutuamente y saber que nos va bien es nuestra dicha diaria. La lealtad y el querer que compartimos son más fuertes que cualquier distancia.
         </p>
         <p>
             Eres una madre increíble, con un corazón puro y una mujer hermosa por dentro y por fuera. Estoy muy orgulloso de ti y de todo lo que has logrado. Disfruta de este día y de todo lo que vendrá. Felicidades por llegar a este nuevo año con tanta fuerza y amor.
         </p>
         <p>
-            Aunque no tengo un presente ahora, sé que en el futuro estará ahí para ti. Y no olvides ponerte seria para la foto como el año pasado. ¡Que viva la cumpleañera!
+            Aunque no tengo un presente ahora, sé que en el futuro estará ahí para ti. Y no olvides ponerte seria para la foto como el año pasado jsjsjssjsjssjsjsj. 
+            
+            ¡Que viva la cumpleañera carajooooooooooooooo! 🥰🍰🎉🎈
         </p>
         <p class="signature">Con cariño, Antonio 🖤✨</p>
         
         <!-- Enlace agregado aquí -->
         <a href="https://open.spotify.com/intl-es/track/2VhJ4nrPorAbySEgO4V0BS?si=fceb0dbf9f2e4b47" class="link" target="_blank">Escuchalo Sipi</a>
-    </div>
-
-    <div class="confetti">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Confetti.png/400px-Confetti.png" alt="Confetti" width="100" />
+        
+        <!-- Confeti animado -->
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
     </div>
 </body>
 </html>
